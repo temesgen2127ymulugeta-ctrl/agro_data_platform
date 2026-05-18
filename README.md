@@ -3,9 +3,9 @@ import gspread
 from datetime import datetime
 
 # 1. Page Configuration Setup
-st.set_page_config(page_title="Agro-Data Platform", page_icon="ðŸŒ¾", layout="centered")
+st.set_page_config(page_title="Agro-Data Platform", page_icon="🌾", layout="centered")
 
-st.title("ðŸŒ¾ Agro-Data Trading & Logistics Platform")
+st.title("🌾 Agro-Data Trading & Logistics Platform")
 st.markdown("Enter transaction details below to update the cloud database instantly.")
 
 # 2. Database Connection Engine
@@ -17,6 +17,7 @@ def connect_to_sheets():
         return spreadsheet.sheet1
     except Exception as e:
         return None
+
 sheet = connect_to_sheets()
 
 # 3. User Interface Forms
