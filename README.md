@@ -17,9 +17,7 @@ def connect_to_sheets():
         return spreadsheet.sheet1
     except Exception as e:
         return None
-
 sheet = connect_to_sheets()
-
 # 3. User Interface Forms
 st.header("ðŸ‘¤ Farmer & Product Details")
 farmer_name = st.text_input("Farmer Full Name")
