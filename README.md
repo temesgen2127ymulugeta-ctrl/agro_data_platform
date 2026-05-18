@@ -1,12 +1,11 @@
- import streamlit as st
+import streamlit as st
 import gspread
-from google.auth import default
 from datetime import datetime
 
 # 1. Page Configuration Setup
-st.set_page_config(page_title="Agro-Data Platform", page_icon="🌾", layout="centered")
+st.set_page_config(page_title="Agro-Data Platform", page_icon="ðŸŒ¾", layout="centered")
 
-st.title("🌾 Agro-Data Trading & Logistics Platform")
+st.title("ðŸŒ¾ Agro-Data Trading & Logistics Platform")
 st.markdown("Enter transaction details below to update the cloud database instantly.")
 
 # 2. Database Connection Engine
@@ -18,9 +17,11 @@ def connect_to_sheets():
         return spreadsheet.sheet1
     except Exception as e:
         return None
+
 sheet = connect_to_sheets()
+
 # 3. User Interface Forms
-st.header("👤 Farmer & Product Details")
+st.header("ðŸ‘¤ Farmer & Product Details")
 farmer_name = st.text_input("Farmer Full Name")
 phone_num   = st.text_input("Phone Number")
 address     = st.text_input("Full Address (Region/Zone/Woreda)")
@@ -31,7 +32,7 @@ with col1:
 with col2:
     product_grade = st.selectbox("Product Grade", ["Grade 1", "Grade 2", "Grade 3"])
 
-st.header("💰 Financial & Logistics Metrics")
+st.header("ðŸ’° Financial & Logistics Metrics")
 col3, col4, col5 = st.columns(3)
 with col3:
     quantity = st.number_input("Quantity (Quintals)", min_value=1, step=1)
@@ -47,7 +48,7 @@ with col7:
     loading_per_q = st.number_input("Loading Fee / Q (ETB)", min_value=0.0)
 
 # 4. Processing Calculations & Action Button
-if st.button("🚀 Commit Record to Cloud"):
+if st.button("ðŸš€ Commit Record to Cloud"):
     if farmer_name and phone_num:
         current_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         total_purchase_value = quantity * price_per_q
@@ -62,7 +63,7 @@ if st.button("🚀 Commit Record to Cloud"):
         
         if sheet:
             sheet.append_row(new_row)
-            st.success(f"🎉 Success! Record for {farmer_name} saved live to Google Sheets database!")
+            st.success(f"ðŸŽ‰ Success! Record for {farmer_name} saved live to Google Sheets database!")
             st.balloons()
             st.metric(label="Net Profit Earned", value=f"{net_profit:,} ETB")
         else:
