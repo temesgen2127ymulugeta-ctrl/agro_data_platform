@@ -18,7 +18,7 @@ def connect_to_sheets():
     except Exception as e:
         return None
 
- sheet = connect_to_sheets()
+sheet = connect_to_sheets()
 
 # 3. User Interface Forms
 st.header("ðŸ‘¤ Farmer & Product Details")
@@ -70,4 +70,4 @@ if st.button("ðŸš€ Commit Record to Cloud"):
             st.warning("Data calculated locally! (Cloud database credentials pending setup on Streamlit Dashboard)")
             st.metric(label="Net Profit Earned (Local)", value=f"{net_profit:,} ETB")
     else:
-        st.error("Please fill in the Farmer Name and Phone Number fields before submitting.")
+        st.error("Please fill in the Farmer Name and Phone Number filds befor sumitting.")
